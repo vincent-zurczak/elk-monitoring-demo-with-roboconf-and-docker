@@ -1,0 +1,7 @@
+.git
+.project
+.gitignore
+.travis.yml
+prepare-docker.sh
+readme.txt
+
