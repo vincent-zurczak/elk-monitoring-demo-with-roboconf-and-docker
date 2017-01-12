@@ -35,7 +35,11 @@ if [[ "$(docker images -q roboconf/roboconf-agent-docker:occiware 2> /dev/null)"
 
 fi
 
-## FIXME: automate the creation of ELK?
+## Create an image with Decanter pre-installed (not just ready to be installed)
+docker run -d --name temp-rbcf roboconf/roboconf-agent-docker:occiware
+docker commit temp-rbcf roboconf/roboconf-agent-docker:occiware-cache
+docker stop temp-rbcf
+docker rm temp-rbcf
 
 echo "That should be fine now..."
 

@@ -8,11 +8,11 @@
 
 5. Start Elastic Search and Kibana:
 
-	docker pull elasticsearch:5.1.1
-	docker run --name rbcf-elasticsearch -p 9200:9200 -d elasticsearch
+	docker pull elasticsearch:5.1.1-alpine
+	docker run --name rbcf-elasticsearch -p 9200:9200 -d elasticsearch:5.1.1-alpine -E "http.host=0.0.0.0" -E "transport.host=127.0.0.1"
 	
 	docker pull kibana:5.1.1
-	docker run --name rbcf-kibana --link rbcf-elasticsearch:elasticsearch -p 5601:5601 -d kibana
+	docker run --name rbcf-kibana --link rbcf-elasticsearch:elasticsearch -p 5601:5601 -d kibana:5.1.1
 
 6. Install the web extension for Kibana.
 
